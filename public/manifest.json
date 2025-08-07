@@ -1,0 +1,68 @@
+{
+  "name": "MindfulAI - Free Mental Health Support",
+  "short_name": "MindfulAI",
+  "description": "Anonymous AI therapy bot with crisis prediction and mood tracking - completely free mental health support",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8b5cf6",
+  "orientation": "portrait",
+  "scope": "/",
+  "shortcuts": [
+    {
+      "name": "Start Therapy Chat",
+      "short_name": "Chat",
+      "description": "Begin a therapy session with AI",
+      "url": "/chat",
+      "icons": [
+        {
+          "src": "/icons/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Mood Check-in",
+      "short_name": "Mood",
+      "description": "Track your current mood",
+      "url": "/chat?mood=true",
+      "icons": [
+        {
+          "src": "/icons/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Crisis Resources",
+      "short_name": "Help",
+      "description": "Access immediate crisis support",
+      "url": "/crisis-resources",
+      "icons": [
+        {
+          "src": "/icons/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "categories": ["health", "medical", "wellness", "lifestyle"],
+  "screenshots": [
+    {
+      "src": "/screenshots/mobile-chat.png",
+      "sizes": "640x1136",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/screenshots/desktop-dashboard.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "lang": "en-GB",
+  "dir": "ltr"
+}

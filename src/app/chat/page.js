@@ -521,17 +521,6 @@ export default function ChatPage() {
             </button>
             <button
               onClick={() => {
-                setShowCommunitySupport(true);
-                analytics.track('community_support_opened');
-              }}
-              className="flex items-center justify-center md:justify-start space-x-1 px-1 md:px-2 lg:px-3 py-1 text-xs sm:text-sm text-green-600 hover:text-green-800 hover:bg-green-50 rounded-md transition-colors min-w-0"
-              title="Connect with supportive community"
-            >
-              <Users className="h-3 w-3 md:h-4 md:w-4 flex-shrink-0" />
-              <span className="hidden lg:inline truncate">Community</span>
-            </button>
-            <button
-              onClick={() => {
                 setShowSessionSummary(true);
                 analytics.track('session_summary_opened');
               }}

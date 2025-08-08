@@ -8,7 +8,6 @@ export default function QuickActionsPanel({
   onMoodCheck, 
   onCrisisHelp, 
   onEnvironmentalTherapy,
-  onCommunitySupport,
   onPersonaSwitch,
   isVisible = true 
 }) {
@@ -46,14 +45,6 @@ export default function QuickActionsPanel({
       action: onEnvironmentalTherapy,
       color: 'bg-green-100 text-green-600 hover:bg-green-200',
       description: 'Peaceful audio'
-    },
-    { 
-      id: 'community', 
-      icon: Users, 
-      label: 'Community', 
-      action: onCommunitySupport,
-      color: 'bg-purple-100 text-purple-600 hover:bg-purple-200',
-      description: 'Connect & share'
     },
     { 
       id: 'therapist', 

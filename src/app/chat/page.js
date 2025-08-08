@@ -248,7 +248,8 @@ export default function ChatPage() {
         setShowCommunitySupport(true);
         break;
       default:
-        console.log('Unknown suggestion type:', suggestionType);
+        // Unknown suggestion type - no action needed
+        break;
     }
   };
 
@@ -352,7 +353,7 @@ export default function ChatPage() {
       setMessages(finalMessages);
       
       // Extract memory from AI response as well
-      if (userMemory && userName) {
+      if (userMemory && userName && data.message && typeof data.message === 'string') {
         extractMemoryFromMessage(data.message, userName);
       }
       
@@ -388,7 +389,7 @@ export default function ChatPage() {
     }
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyDown = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSendMessage();
@@ -495,11 +496,7 @@ export default function ChatPage() {
             </button>
             <button
               onClick={() => {
-                console.log('Mood button clicked!');
-                console.log('userName:', userName);
-                console.log('showMoodDashboard before:', showMoodDashboard);
                 setShowMoodDashboard(true);
-                console.log('setShowMoodDashboard(true) called');
                 analytics.track('mood_dashboard_opened');
               }}
               className="flex items-center justify-center md:justify-start space-x-1 px-1 md:px-2 lg:px-3 py-1 text-xs sm:text-sm text-purple-600 hover:text-purple-800 hover:bg-purple-50 rounded-md transition-colors min-w-0"
@@ -670,7 +667,7 @@ export default function ChatPage() {
             <textarea
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
-              onKeyPress={handleKeyPress}
+              onKeyDown={handleKeyDown}
               placeholder="Share what's on your mind... (Enter to send, Shift+Enter for new line)"
               className="flex-1 resize-none border border-gray-300 rounded-lg px-3 py-2 bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm sm:text-base"
               rows="2"
@@ -678,7 +675,7 @@ export default function ChatPage() {
               maxLength={2000}
             />
             <button
-              onClick={handleSendMessage}
+              onClick={() => handleSendMessage()}
               disabled={!inputText.trim() || isTyping}
               className="px-3 sm:px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 flex items-center"
             >
@@ -810,7 +807,6 @@ export default function ChatPage() {
         <MoodDashboard 
           isOpen={showMoodDashboard}
           onClose={() => {
-            console.log('Closing mood dashboard');
             setShowMoodDashboard(false);
           }}
           userName={userName}

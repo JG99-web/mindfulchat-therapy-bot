@@ -256,6 +256,12 @@ export class AdaptiveMemory {
 
 // Helper functions for memory extraction from conversations
 export const extractMemoryFromMessage = (message, userName) => {
+  // Ensure message is a string
+  if (!message || typeof message !== 'string') {
+    console.warn('extractMemoryFromMessage called with invalid message:', message);
+    return;
+  }
+  
   const lowerMessage = message.toLowerCase();
   const memory = new AdaptiveMemory(userName);
   

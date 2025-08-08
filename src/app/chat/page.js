@@ -435,7 +435,7 @@ export default function ChatPage() {
               <span className="font-semibold text-gray-900 text-sm sm:text-base">MindfulChat Therapy Bot</span>
             </div>
           </div>
-          <div className="flex items-center space-x-2 sm:space-x-4">
+          <div className="flex flex-col sm:flex-row items-end sm:items-center gap-2 sm:gap-4">
             <div className="flex items-center space-x-2 text-xs sm:text-sm text-gray-500">
               <div className={`w-2 h-2 rounded-full ${
                 connectionStatus === 'connected' ? 'bg-green-400' : 
@@ -446,6 +446,7 @@ export default function ChatPage() {
                  connectionStatus === 'error' ? 'Connection Issues' : 'Connecting...'}
               </span>
             </div>
+            <div className="flex flex-wrap items-center gap-1 sm:gap-2">
             <button
               onClick={() => {
                 setShowBreathingExercise(true);
@@ -550,6 +551,7 @@ export default function ChatPage() {
               <RotateCcw className="h-4 w-4" />
               <span className="hidden md:inline">New</span>
             </button>
+            </div>
           </div>
         </div>
       </div>

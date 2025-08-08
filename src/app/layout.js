@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from '../contexts/ThemeContext';
+import Script from 'next/script';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,7 +24,7 @@ export const metadata = {
   openGraph: {
     title: "Free AI Therapy Bot - Anonymous Mental Health Support",
     description: "24/7 free AI therapy support for anxiety, depression, and stress. Anonymous, no signup required.",
-    url: "https://yourdomain.com",
+    url: "https://mindfulchatai.com",
     siteName: "MindfulAI",
     type: "website",
     images: [
@@ -67,7 +68,7 @@ export default function RootLayout({ children }) {
     "@type": "MedicalWebPage",
     "name": "Free AI Therapy Bot - Mental Health Support",
     "description": "Free, anonymous AI therapy support for anxiety, depression, stress, and crisis situations. Available 24/7 with no signup required.",
-    "url": "https://yourdomain.com",
+    "url": "https://mindfulchatai.com",
     "specialty": "Mental Health",
     "audience": {
       "@type": "PeopleAudience",
@@ -82,7 +83,7 @@ export default function RootLayout({ children }) {
       "@type": "CommunicateAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://yourdomain.com/chat"
+        "urlTemplate": "https://mindfulchatai.com/chat"
       }
     }
   };
@@ -90,6 +91,26 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        {/* Google Analytics */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+              page_title: document.title,
+              page_location: window.location.href,
+            });
+          `}
+        </Script>
+        
+        {/* Google Search Console Verification */}
+        <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION} />
+        
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#8b5cf6" />
         <meta name="apple-mobile-web-app-capable" content="yes" />

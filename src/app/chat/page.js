@@ -435,7 +435,7 @@ export default function ChatPage() {
               <span className="font-semibold text-gray-900 text-sm sm:text-base">MindfulChat Therapy Bot</span>
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row items-end sm:items-center gap-2 sm:gap-4">
+          <div className="flex flex-col gap-2">
             <div className="flex items-center space-x-2 text-xs sm:text-sm text-gray-500">
               <div className={`w-2 h-2 rounded-full ${
                 connectionStatus === 'connected' ? 'bg-green-400' : 
@@ -446,50 +446,52 @@ export default function ChatPage() {
                  connectionStatus === 'error' ? 'Connection Issues' : 'Connecting...'}
               </span>
             </div>
-            <div className="flex flex-wrap items-center gap-1 sm:gap-2">
+            
+            {/* Mobile: Two-row layout, Desktop: Single row */}
+            <div className="grid grid-cols-4 sm:grid-cols-5 md:flex md:flex-wrap items-center gap-1 md:gap-2 max-w-full overflow-hidden">
             <button
               onClick={() => {
                 setShowBreathingExercise(true);
                 analytics.track('breathing_exercise_started');
               }}
-              className="flex items-center space-x-1 px-2 sm:px-3 py-1 text-xs sm:text-sm text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
+              className="flex items-center justify-center md:justify-start space-x-1 px-1 md:px-2 lg:px-3 py-1 text-xs sm:text-sm text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors min-w-0"
               title="Start breathing exercise"
             >
-              <Waves className="h-4 w-4" />
-              <span className="hidden md:inline">Breathe</span>
+              <Waves className="h-3 w-3 md:h-4 md:w-4 flex-shrink-0" />
+              <span className="hidden lg:inline truncate">Breathe</span>
             </button>
             <button
               onClick={() => {
                 setShowEnvironmentalTherapy(true);
                 analytics.track('environmental_therapy_started', { mood: currentMood });
               }}
-              className="flex items-center space-x-1 px-2 sm:px-3 py-1 text-xs sm:text-sm text-purple-600 hover:text-purple-800 hover:bg-purple-50 rounded-md transition-colors"
+              className="flex items-center justify-center md:justify-start space-x-1 px-1 md:px-2 lg:px-3 py-1 text-xs sm:text-sm text-purple-600 hover:text-purple-800 hover:bg-purple-50 rounded-md transition-colors min-w-0"
               title={`Optimize your environment for ${currentMood} mood`}
             >
-              <Lightbulb className="h-4 w-4" />
-              <span className="hidden md:inline">Space</span>
+              <Lightbulb className="h-3 w-3 md:h-4 md:w-4 flex-shrink-0" />
+              <span className="hidden lg:inline truncate">Space</span>
             </button>
             <button
               onClick={() => {
                 setShowPersonaSelector(true);
                 analytics.track('persona_selector_opened', { currentPersona: selectedPersona });
               }}
-              className="flex items-center space-x-1 px-2 sm:px-3 py-1 text-xs sm:text-sm text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50 rounded-md transition-colors"
+              className="flex items-center justify-center md:justify-start space-x-1 px-1 md:px-2 lg:px-3 py-1 text-xs sm:text-sm text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50 rounded-md transition-colors min-w-0"
               title={`Current: ${getPersonaDisplayInfo(selectedPersona).name}`}
             >
-              <Users className="h-4 w-4" />
-              <span className="hidden md:inline">{getPersonaDisplayInfo(selectedPersona).name}</span>
+              <Users className="h-3 w-3 md:h-4 md:w-4 flex-shrink-0" />
+              <span className="hidden lg:inline truncate">{getPersonaDisplayInfo(selectedPersona).name}</span>
             </button>
             <button
               onClick={() => {
                 setShowMemoryDashboard(true);
                 analytics.track('memory_dashboard_opened');
               }}
-              className="flex items-center space-x-1 px-2 sm:px-3 py-1 text-xs sm:text-sm text-green-600 hover:text-green-800 hover:bg-green-50 rounded-md transition-colors"
+              className="flex items-center justify-center md:justify-start space-x-1 px-1 md:px-2 lg:px-3 py-1 text-xs sm:text-sm text-green-600 hover:text-green-800 hover:bg-green-50 rounded-md transition-colors min-w-0"
               title="View therapeutic journey and insights"
             >
-              <Brain className="h-4 w-4" />
-              <span className="hidden md:inline">Journey</span>
+              <Brain className="h-3 w-3 md:h-4 md:w-4 flex-shrink-0" />
+              <span className="hidden lg:inline truncate">Journey</span>
             </button>
             <button
               onClick={() => {
@@ -500,56 +502,56 @@ export default function ChatPage() {
                 console.log('setShowMoodDashboard(true) called');
                 analytics.track('mood_dashboard_opened');
               }}
-              className="flex items-center space-x-1 px-2 sm:px-3 py-1 text-xs sm:text-sm text-purple-600 hover:text-purple-800 hover:bg-purple-50 rounded-md transition-colors"
+              className="flex items-center justify-center md:justify-start space-x-1 px-1 md:px-2 lg:px-3 py-1 text-xs sm:text-sm text-purple-600 hover:text-purple-800 hover:bg-purple-50 rounded-md transition-colors min-w-0"
               title="View mood tracking and insights"
             >
-              <BarChart3 className="h-4 w-4" />
-              <span className="hidden md:inline">Mood</span>
+              <BarChart3 className="h-3 w-3 md:h-4 md:w-4 flex-shrink-0" />
+              <span className="hidden lg:inline truncate">Mood</span>
             </button>
             <button
               onClick={() => {
                 setShowCrisisPredictionDashboard(true);
                 analytics.track('crisis_prediction_dashboard_opened');
               }}
-              className="flex items-center space-x-1 px-2 sm:px-3 py-1 text-xs sm:text-sm text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
+              className="flex items-center justify-center md:justify-start space-x-1 px-1 md:px-2 lg:px-3 py-1 text-xs sm:text-sm text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors min-w-0"
               title="View wellness monitoring and crisis prediction"
             >
-              <Brain className="h-4 w-4" />
-              <span className="hidden md:inline">Wellness</span>
+              <Brain className="h-3 w-3 md:h-4 md:w-4 flex-shrink-0" />
+              <span className="hidden lg:inline truncate">Wellness</span>
             </button>
             <button
               onClick={() => {
                 setShowCommunitySupport(true);
                 analytics.track('community_support_opened');
               }}
-              className="flex items-center space-x-1 px-2 sm:px-3 py-1 text-xs sm:text-sm text-green-600 hover:text-green-800 hover:bg-green-50 rounded-md transition-colors"
+              className="flex items-center justify-center md:justify-start space-x-1 px-1 md:px-2 lg:px-3 py-1 text-xs sm:text-sm text-green-600 hover:text-green-800 hover:bg-green-50 rounded-md transition-colors min-w-0"
               title="Connect with supportive community"
             >
-              <Users className="h-4 w-4" />
-              <span className="hidden md:inline">Community</span>
+              <Users className="h-3 w-3 md:h-4 md:w-4 flex-shrink-0" />
+              <span className="hidden lg:inline truncate">Community</span>
             </button>
             <button
               onClick={() => {
                 setShowSessionSummary(true);
                 analytics.track('session_summary_opened');
               }}
-              className="flex items-center space-x-1 px-2 sm:px-3 py-1 text-xs sm:text-sm text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50 rounded-md transition-colors"
+              className="flex items-center justify-center md:justify-start space-x-1 px-1 md:px-2 lg:px-3 py-1 text-xs sm:text-sm text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50 rounded-md transition-colors min-w-0"
               title="View session summary and insights"
               disabled={messages.length <= 1}
             >
-              <FileText className="h-4 w-4" />
-              <span className="hidden md:inline">Summary</span>
+              <FileText className="h-3 w-3 md:h-4 md:w-4 flex-shrink-0" />
+              <span className="hidden lg:inline truncate">Summary</span>
             </button>
             <button
               onClick={() => {
                 clearSession();
                 analytics.track('session_cleared');
               }}
-              className="flex items-center space-x-1 px-2 sm:px-3 py-1 text-xs sm:text-sm text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-md transition-colors"
+              className="flex items-center justify-center md:justify-start space-x-1 px-1 md:px-2 lg:px-3 py-1 text-xs sm:text-sm text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-md transition-colors min-w-0"
               title="Start a fresh conversation"
             >
-              <RotateCcw className="h-4 w-4" />
-              <span className="hidden md:inline">New</span>
+              <RotateCcw className="h-3 w-3 md:h-4 md:w-4 flex-shrink-0" />
+              <span className="hidden lg:inline truncate">New</span>
             </button>
             </div>
           </div>

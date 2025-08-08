@@ -68,9 +68,9 @@ export default function QuickActionsPanel({
   if (!isVisible) return null;
 
   return (
-    <div className="fixed right-20 bottom-4 z-40">
+    <div className="fixed right-2 sm:right-4 lg:right-20 bottom-4 z-40">
       <div className={`bg-white rounded-xl shadow-lg border border-gray-200 transition-all duration-300 ${
-        isExpanded ? 'w-64' : 'w-12'
+        isExpanded ? 'w-56 sm:w-64' : 'w-12'
       }`}>
         {/* Toggle Button */}
         <button

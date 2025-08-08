@@ -694,12 +694,12 @@ export default function ChatPage() {
               <Send className="h-4 w-4" />
             </button>
           </div>
-          <div className="flex justify-between items-center mt-2">
-            <p className="text-xs text-gray-500">
+          <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center mt-2 gap-2">
+            <p className="text-xs text-gray-500 leading-relaxed">
               This is an AI therapy bot. While it can provide support and coping strategies, 
               it's not a replacement for professional mental health care.
             </p>
-            <span className="text-xs text-gray-400">
+            <span className="text-xs text-gray-400 ml-auto sm:ml-0">
               {inputText.length}/2000
             </span>
           </div>

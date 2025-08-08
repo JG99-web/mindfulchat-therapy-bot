@@ -132,40 +132,40 @@ Remember: This is AI-generated content and not a replacement for professional me
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-xl shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4">
+      <div className="bg-white rounded-lg sm:rounded-xl shadow-xl max-w-2xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="p-6 border-b border-gray-200">
+        <div className="p-4 sm:p-6 border-b border-gray-200">
           <div className="flex justify-between items-center">
             <div>
-              <h2 className="text-xl font-semibold text-gray-900">Session Summary</h2>
+              <h2 className="text-lg sm:text-xl font-semibold text-gray-900">Session Summary</h2>
               <p className="text-sm text-gray-600 mt-1">
                 {new Date().toLocaleDateString()} • {summary.stats.duration}
               </p>
             </div>
             <button
               onClick={onClose}
-              className="text-gray-400 hover:text-gray-600 transition-colors"
+              className="text-gray-400 hover:text-gray-600 transition-colors p-1"
             >
-              <X className="h-6 w-6" />
+              <X className="h-5 w-5 sm:h-6 sm:w-6" />
             </button>
           </div>
         </div>
 
         {/* Content */}
-        <div className="p-6 space-y-6">
+        <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
           {/* Session Stats */}
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
             <div className="text-center p-3 bg-blue-50 rounded-lg">
-              <div className="text-2xl font-bold text-blue-600">{summary.stats.messageCount}</div>
+              <div className="text-xl sm:text-2xl font-bold text-blue-600">{summary.stats.messageCount}</div>
               <div className="text-sm text-blue-600">Messages</div>
             </div>
             <div className="text-center p-3 bg-green-50 rounded-lg">
-              <div className="text-2xl font-bold text-green-600">{summary.stats.duration}</div>
+              <div className="text-xl sm:text-2xl font-bold text-green-600">{summary.stats.duration}</div>
               <div className="text-sm text-green-600">Duration</div>
             </div>
             <div className="text-center p-3 bg-purple-50 rounded-lg">
-              <div className="text-lg font-bold text-purple-600 capitalize">{summary.stats.persona}</div>
+              <div className="text-base sm:text-lg font-bold text-purple-600 capitalize">{summary.stats.persona}</div>
               <div className="text-sm text-purple-600">Therapist</div>
             </div>
           </div>
@@ -230,15 +230,15 @@ Remember: This is AI-generated content and not a replacement for professional me
         </div>
 
         {/* Footer */}
-        <div className="p-6 border-t border-gray-200 bg-gray-50 rounded-b-xl">
-          <div className="flex justify-between items-center">
-            <p className="text-xs text-gray-500">
+        <div className="p-4 sm:p-6 border-t border-gray-200 bg-gray-50 rounded-b-lg sm:rounded-b-xl">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-0">
+            <p className="text-xs text-gray-500 leading-relaxed">
               This summary is AI-generated and not a replacement for professional care.
             </p>
-            <div className="flex space-x-3">
+            <div className="flex space-x-3 w-full sm:w-auto">
               <button
                 onClick={exportSummary}
-                className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
+                className="flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm w-full sm:w-auto"
               >
                 <Download className="h-4 w-4 mr-2" />
                 Export
